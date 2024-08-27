@@ -17,35 +17,40 @@ class CategorySeeder extends Seeder
         Category::create(
             [
                 'name' => 'Osint',
-                'slug' => 'osint'
+                'slug' => 'osint',
+                'color' => 'green'
             
             ]);
             
             Category::create(
                 [
                     'name' => 'DDoS',
-                    'slug' => 'ddos'
+                    'slug' => 'ddos',
+                    'color' => 'blue'
                 
                 ]);
                 
-                Category::create(
+            Category::create(
                     [
                         'name' => 'Deface',
-                        'slug' => 'deface'
+                        'slug' => 'deface',
+                        'color' => 'red'
                     
                     ]);
                     
-                    Category::create(
+            Category::create(
                         [
                             'name' => 'Hacking',
-                            'slug' => 'hacking'
+                            'slug' => 'hacking',
+                            'color' => 'yellow'
                         
                         ]);
                         
                         Category::create(
                             [
                                 'name' => 'Ui-UX',
-                                'slug' => 'ui-ux'
+                                'slug' => 'ui-ux',
+                                'color' => 'violet'
                             
                             ]);
                 

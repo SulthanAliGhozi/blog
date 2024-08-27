@@ -8,6 +8,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <title>HALAMAN || </title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 

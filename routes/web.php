@@ -14,9 +14,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', function () {
-    // $posts = Post::with(['author','category'])->latest()->get();
-    $posts = Post::latest()->get();
-    return view('posts', ['head' => 'Blog Page', 'titles' => 'Blog', 'posts' => $posts]);
+    return view('posts', ['head' => 'Blog Page', 'titles' => 'Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(6)->withQueryString()]);
 });
 
 Route::get('/posts/{post:slug}', function (Post $post) {
@@ -27,15 +25,24 @@ Route::get('/posts/{post:slug}', function (Post $post) {
 });
 
 Route::get('/authors/{user:username}', function (User $user) {
-    // $posts = $user->posts->load('author', 'category');
+
     return view('posts', ['head' => count($user->posts) . ' Articles by ' . $user->name, 'posts' => $user->posts]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
-    // $posts = $category->posts->load('author', 'category');
-    return view('posts', ['head' => 'Articles in: ' . $category->name , 'posts' => $category->posts]);
+    return view('posts', ['head' => 'Articles in: ' . $category->name, 'posts' => $category->posts]);
 });
 
 Route::get('/contact', function () {
-return view('contact', ['head' => 'Contact Page', 'titles' => 'Contact']);
+    return view('contact', ['head' => 'Contact Page', 'titles' => 'Contact']);
 });
+
+Route::get('/404', function () {
+    return view('404');
+});
+
+Route::resource(
+    '/products',
+    \App\Http\Controllers\ProductController::class
+);
+
